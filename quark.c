@@ -9,9 +9,7 @@
 
 #include "sha3/sph_skein.h"
 
-void quark_hash(const char* input, char* output)
-{
-    static __inline uint32_t
+static __inline uint32_t
 be32dec(const void *pp)
 {
         const uint8_t *p = (uint8_t const *)pp;
@@ -77,6 +75,10 @@ be32dec_vect(uint32_t *dst, const unsigned char *src, size_t len)
                 dst[i] = be32dec(src + i * 4);
 }
     
+
+void quark_hash(const char* input, char* output)
+{
+
     
     sph_skein512_context     ctx_skein;
     static unsigned char pblank[1];
