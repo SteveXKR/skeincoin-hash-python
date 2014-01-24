@@ -10,7 +10,7 @@
 
 #include "sha3/sph_skein.h"
 
-void quark_hash(const char* input, char* output)
+uint256 quark_hash(const T1 pbegin, const T1 pend)
 {
 
     sph_skein512_context ctx_skein;
@@ -25,7 +25,7 @@ void quark_hash(const char* input, char* output)
     
     SHA256((unsigned char*)&hash1, 64, (unsigned char*)&hash2);
     
-    memcpy(output, hash2, sizeof(hash2));
+    return hash2;
 
 
 }
