@@ -32,6 +32,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
+#include <inttypes.h>
 
 #include <openssl/sha.h>
 
