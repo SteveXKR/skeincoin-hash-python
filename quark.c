@@ -1,5 +1,4 @@
 #include "quark.h"
-#include "uint256.h"
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
