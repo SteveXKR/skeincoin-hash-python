@@ -9,7 +9,7 @@
 
 #include "sha3/sph_skein.h"
 
-void quark_hash(void *state, const void *input)
+void quark_hash(const char* input, char* output)
 {
     sph_skein512_context     ctx_skein;
     static unsigned char pblank[1];
@@ -29,7 +29,7 @@ void quark_hash(void *state, const void *input)
     SHA256_Update(&sha256, hashA, 64);
     SHA256_Final(hashB, &sha256);
 
-    memcpy(state, hashB, 32);
+    memcpy(output, hashB, 32);
         
 
 /*        int ii;
