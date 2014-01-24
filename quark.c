@@ -32,6 +32,9 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
+
+#include <openssl/sha.h>
+
 #include "sha3/sph_skein.h"
 
 void quark_hash(const char* input, char* output)
