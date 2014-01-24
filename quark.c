@@ -9,7 +9,7 @@
 
 #include "sha3/sph_skein.h"
 
-void skeinhash(void *state, const void *input)
+void quark_hash(void *state, const void *input)
 {
     sph_skein512_context     ctx_skein;
     static unsigned char pblank[1];
