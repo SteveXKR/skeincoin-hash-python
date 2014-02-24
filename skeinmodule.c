@@ -1,8 +1,8 @@
 #include <Python.h>
 
-#include "quark.h"
+#include "skein.h"
 
-static PyObject *quark_getpowhash(PyObject *self, PyObject *args)
+static PyObject *skein_getpowhash(PyObject *self, PyObject *args)
 {
     char *output;
     PyObject *value;
@@ -17,9 +17,9 @@ static PyObject *quark_getpowhash(PyObject *self, PyObject *args)
     output = PyMem_Malloc(32);
 
 #if PY_MAJOR_VERSION >= 3
-    quark_hash((char *)PyBytes_AsString((PyObject*) input), output);
+    skein_hash((char *)PyBytes_AsString((PyObject*) input), output);
 #else
-    quark_hash((char *)PyString_AsString((PyObject*) input), output);
+    skein_hash((char *)PyString_AsString((PyObject*) input), output);
 #endif
     Py_DECREF(input);
 #if PY_MAJOR_VERSION >= 3
@@ -31,27 +31,27 @@ static PyObject *quark_getpowhash(PyObject *self, PyObject *args)
     return value;
 }
 
-static PyMethodDef QuarkMethods[] = {
-    { "getPoWHash", quark_getpowhash, METH_VARARGS, "Returns the proof of work hash using quark hash" },
+static PyMethodDef SkeinMethods[] = {
+    { "getPoWHash", skein_getpowhash, METH_VARARGS, "Returns the proof of work hash using skein hash" },
     { NULL, NULL, 0, NULL }
 };
 
 #if PY_MAJOR_VERSION >= 3
-static struct PyModuleDef QuarkModule = {
+static struct PyModuleDef SkeinModule = {
     PyModuleDef_HEAD_INIT,
-    "quark_hash",
+    "skein_hash",
     "...",
     -1,
-    QuarkMethods
+    SkeinMethods
 };
 
-PyMODINIT_FUNC PyInit_quark_hash(void) {
-    return PyModule_Create(&QuarkModule);
+PyMODINIT_FUNC PyInit_skein_hash(void) {
+    return PyModule_Create(&SkeinModule);
 }
 
 #else
 
-PyMODINIT_FUNC initquark_hash(void) {
-    (void) Py_InitModule("quark_hash", QuarkMethods);
+PyMODINIT_FUNC initskein_hash(void) {
+    (void) Py_InitModule("skein_hash", SkeinMethods);
 }
 #endif

@@ -1,4 +1,4 @@
-#include "quark.h"
+#include "skein.h"
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
@@ -75,7 +75,7 @@ be32dec_vect(uint32_t *dst, const unsigned char *src, size_t len)
 }
     
 
-void quark_hash(const char* input, char* output)
+void skein_hash(const char* input, char* output)
 {
 
     

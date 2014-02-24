@@ -1,4 +1,4 @@
-quarkcoin-hash-python
+skeincoin-hash-python
 =====================
 
-Python module with quarkcoin's hashing algorithm used by some other tools
+Python module with skeincoin's hashing algorithm used by some other tools
